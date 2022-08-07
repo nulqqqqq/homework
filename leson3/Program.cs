@@ -1,4 +1,4 @@
-﻿//задание 1
+﻿/*//задание 1
 Console.WriteLine("Введите первое число: ");
 int firstValue = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите второе число: ");
@@ -31,6 +31,33 @@ void numberСomparison()
     }
 }
 numberСomparison();
-//задание 3
+//задание 3*/
+bool isPalindrom(char[] arr, char[] arr2)
+{
+    Array.Reverse(arr);
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] != arr2[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+Console.WriteLine("Введите число для определения палиндрома:");
+int value = Convert.ToInt32(Console.ReadLine());
+string a = value.ToString();
+char[] array = a.ToCharArray();
+char[] array2 = a.ToCharArray();
+if(isPalindrom(array, array2))
+{
+    Console.WriteLine("число является палиндромом");
+   
+}
+else
+{
+    Console.WriteLine("число не является палиндромом");
+}
+
 
 
