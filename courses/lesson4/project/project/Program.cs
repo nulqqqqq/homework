@@ -37,3 +37,30 @@ int averageValue = sumOfArray / sizeOfArray;
 Console.WriteLine($"Среднее арифметическое массива: {averageValue}");
 Console.ReadLine();
 //задание со звездочкой
+
+//3 задание
+//4 задание словарь
+Console.WriteLine("Введите слово для перевода:");
+string wordToTranslate = Console.ReadLine();
+string valueToTranslate = "";
+Dictionary<string, string> dictionary = new Dictionary<string, string>();
+dictionary.Add("Hello", "Привет");
+dictionary.Add("Message", "Сообщение");
+dictionary.Add("Value", "Значение");
+dictionary.Add("Monday", "Понедельник");
+dictionary.Add("Standart", "Стандарт");
+dictionary.Add("Bye", "Пока");
+dictionary.Add("Forget", "Забыть");
+dictionary.Add("Word", "Слово");
+dictionary.Add("Translation", "Перевод");
+dictionary.Add("Television", "Телевизор");
+if (dictionary.ContainsKey(wordToTranslate))
+{
+    dictionary.TryGetValue(wordToTranslate,out valueToTranslate);
+    Console.WriteLine($"Перевод:{wordToTranslate}");
+}
+else
+{
+    Console.WriteLine($"Значение по ключу: {wordToTranslate} не найдено");
+}
+Console.ReadLine();
