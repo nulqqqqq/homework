@@ -9,6 +9,7 @@ for (int i = 0; i < array.Length; i++)
     array[i] = rand.Next(-100, 100);
     Console.WriteLine(array[i]);
 }
+
 int minValue = array[0];
 foreach (int i in array)
 {
@@ -18,6 +19,7 @@ foreach (int i in array)
     }
 }
 Console.WriteLine($"Минимальное значение в массиве:{minValue}.");
+
 int maxValue = array[0];
 foreach (int i in array)
 {
@@ -27,18 +29,21 @@ foreach (int i in array)
     }
 }
 Console.WriteLine($"Максимальное значение в массиве:{maxValue}.");
+
 int sumOfArray = 0;
 foreach (int i in array)
 {
     sumOfArray += i;
 }
 Console.WriteLine($"Сумма всех чисел массива:{sumOfArray}.");
+
 int averageValue = sumOfArray / sizeOfArray;
 Console.WriteLine($"Среднее арифметическое массива: {averageValue}");
 Console.ReadLine();
 //задание со звездочкой
 
 //3 задание
+
 //4 задание словарь
 Console.WriteLine("Введите слово для перевода:");
 string wordToTranslate = Console.ReadLine();
