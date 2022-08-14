@@ -53,7 +53,7 @@ for (int i = 0; i < array.Length; i++)
             array[j] = t;
         }
     }
-    
+
 }
 
 Console.WriteLine("Отсортированный массив:");
@@ -62,8 +62,55 @@ foreach (int i in array)
     Console.WriteLine(i);
 }
 
-//3 задание
+//3 задание*
+Console.WriteLine("введите размер двумерного массива:");
+int sizeOfSecondArrayValue1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите второй размер:");
+int sizeOfSecondArrayValue2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Размер массива:{sizeOfSecondArrayValue1},{sizeOfSecondArrayValue2}");
+int[,] arrayTwoDimensional = new int[sizeOfSecondArrayValue1, sizeOfSecondArrayValue2];
+Random rand1 = new Random();
 
+for (int i = 0; i < sizeOfSecondArrayValue1; i++)
+{
+    for (int j = 0; j < sizeOfSecondArrayValue2; j++)
+    {
+        arrayTwoDimensional[i, j] = rand.Next(-10, 10);
+        Console.Write(arrayTwoDimensional[i, j] + " ");
+    }
+    Console.WriteLine();
+}
+
+int minValueOfArrayTwoDimensional = arrayTwoDimensional[0, 0];
+foreach (int i  in arrayTwoDimensional)
+{
+    if(i < minValueOfArrayTwoDimensional)
+    {
+        minValueOfArrayTwoDimensional = i;
+    }
+}
+Console.WriteLine($"Минимальное значение двумерного массива:{minValueOfArrayTwoDimensional}");
+
+int maxValueOfArrayTwoDimensional = arrayTwoDimensional[0, 0];
+foreach (int i  in arrayTwoDimensional)
+{
+    if (i > maxValueOfArrayTwoDimensional)
+    {
+        maxValueOfArrayTwoDimensional = i;
+    }
+}
+Console.WriteLine($"Максимальное значение двумерного массива:{maxValueOfArrayTwoDimensional}");
+
+int sumOfArrayTwoDimensional = 0;
+foreach (int i  in arrayTwoDimensional)
+{
+    sumOfArrayTwoDimensional += i;
+}
+Console.WriteLine($"Сумма всех элементов двумерного массива:{sumOfArrayTwoDimensional}");
+
+int averageValueOfarrayTwoDimensional = sumOfArrayTwoDimensional / (sizeOfSecondArrayValue1 * sizeOfSecondArrayValue2);
+Console.WriteLine($"Среднее арифметическое двумерного массива:{averageValueOfarrayTwoDimensional}");
+//с сортировкой не справился:(
 //4 задание словарь
 Console.WriteLine("Введите слово для перевода:");
 string wordToTranslate = Console.ReadLine();
@@ -79,9 +126,10 @@ dictionary.Add("Forget", "Забыть");
 dictionary.Add("Word", "Слово");
 dictionary.Add("Translation", "Перевод");
 dictionary.Add("Television", "Телевизор");
+
 if (dictionary.ContainsKey(wordToTranslate))
 {
-    dictionary.TryGetValue(wordToTranslate,out valueToTranslate);
+    dictionary.TryGetValue(wordToTranslate, out valueToTranslate);
     Console.WriteLine($"Перевод:{wordToTranslate}");
 }
 else
