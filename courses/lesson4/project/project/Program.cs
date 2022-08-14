@@ -130,7 +130,7 @@ dictionary.Add("Television", "Телевизор");
 if (dictionary.ContainsKey(wordToTranslate))
 {
     dictionary.TryGetValue(wordToTranslate, out valueToTranslate);
-    Console.WriteLine($"Перевод:{wordToTranslate}");
+    Console.WriteLine($"Перевод:{valueToTranslate}");
 }
 else
 {
