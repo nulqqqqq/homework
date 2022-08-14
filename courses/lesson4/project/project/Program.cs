@@ -75,7 +75,7 @@ for (int i = 0; i < sizeOfSecondArrayValue1; i++)
 {
     for (int j = 0; j < sizeOfSecondArrayValue2; j++)
     {
-        arrayTwoDimensional[i, j] = rand.Next(-10, 10);
+        arrayTwoDimensional[i, j] = rand.Next(-100, 100);
         Console.Write(arrayTwoDimensional[i, j] + " ");
     }
     Console.WriteLine();
