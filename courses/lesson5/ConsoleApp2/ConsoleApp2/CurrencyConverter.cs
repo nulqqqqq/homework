@@ -8,5 +8,16 @@ namespace project
 {
     internal class CurrencyConverter
     {
+        public List<ExchangeRate> ExchangeRates;
+
+        public ExchangeRate (ExchangeRate)
+        {
+
+        }
+
+        public AddExchangeRates(ExchangeRate[])
+        {
+
+        }
     }
 }
