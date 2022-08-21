@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace project
 {
-    internal class CurrencyConverter
+    public class CurrencyConverter
     {
-        public List<ExchangeRate> ExchangeRates;
 
-        public ExchangeRate (ExchangeRate)
+
+        public void ExchangeRate(ExchangeRate)
         {
 
         }
 
-        public AddExchangeRates(ExchangeRate[])
+        public void AddExchangeRates(ExchangeRate[])
         {
 
         }

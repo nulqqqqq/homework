@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace project
 {
-    public class Currencies
+    public enum Currencies
     {
-        
-
+        EUR,
+        USD,
+        GBP,
+        CHF,
+        AUD,
+        CAD,
+        JPY,
+        CNY,
+        ETH,
+        BTC
     }
 }

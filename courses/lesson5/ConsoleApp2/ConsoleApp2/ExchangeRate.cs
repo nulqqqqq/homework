@@ -9,11 +9,10 @@ namespace project
 {
     public class ExchangeRate
     {
-        public Currencies a = new Currencies();
         public string firstCurrency;
         public string secondCurrency;
-        public float value;
-        public int currencyCount = 1;
+        public float value { get; set; }
+        public int currencyCount { get; set; } = 1;
 
         public override string ToString()
         {
@@ -22,14 +21,14 @@ namespace project
 
         public ExchangeRate(Currencies fCurrencies,Currencies sCurrencies)
         {
-            
-            
+            this.firstCurrency = firstCurrency;
+            this.secondCurrency = secondCurrency;
         }
-        
-        public ExchangeRate(Currencies fCurrencies, Currencies sCurrencies, float value):this(fCurrencies, sCurrencies)
+
+        public ExchangeRate(Currencies fCurrencies, Currencies sCurrencies, float value) : this(fCurrencies,
+            sCurrencies)
         {
-            
+            this.value = value;
         }
-        
     }
 }
