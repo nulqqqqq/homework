@@ -10,13 +10,7 @@ public class Program
 {
     
     static void Main(string[] args)
-    {
-        Worker worker = new Worker();
-        Director director = new Director();
-        Manager manager = new Manager();
-        GetAccess(manager, AccesLevelType.FullAccess);
-        GetAccess(worker, AccesLevelType.NonAccess);
-        GetAccess(director, AccesLevelType.FullAccess);
+    {   
         
         void GetAccess(Employee employee, AccesLevelType accesLevelType)
         {
@@ -39,8 +33,24 @@ public class Program
                 }
             }
         }
-
-
+        Manager manager = new Manager();
+        Console.WriteLine("manager");
+        GetAccess(manager, AccesLevelType.FullAccess);
+        GetAccess(manager, AccesLevelType.PartAccess);
+        GetAccess(manager, AccesLevelType.NonAccess);
+        Console.WriteLine();
+        Director director = new Director();
+        Console.WriteLine("director");
+        GetAccess(director, AccesLevelType.FullAccess);
+        GetAccess(director, AccesLevelType.PartAccess);
+        GetAccess(director, AccesLevelType.NonAccess);
+        Console.WriteLine();
+        Worker worker = new Worker();
+        Console.WriteLine("worker");
+        GetAccess(worker, AccesLevelType.FullAccess);
+        GetAccess(worker, AccesLevelType.PartAccess);
+        GetAccess(worker, AccesLevelType.NonAccess);
+        Console.WriteLine();
     }
 }
     public class Employee
@@ -55,4 +65,5 @@ public class Program
             a = accesLevelType;
         }
     }
+
 
