@@ -16,7 +16,7 @@ public class Program
         {
             
             Type type = employee.GetType();
-            object[] attributes = type.GetCustomAttributes(false);
+            object[] attributes = type.GetCustomAttributes(true);
             foreach (Attribute attr in attributes)
             {
 
