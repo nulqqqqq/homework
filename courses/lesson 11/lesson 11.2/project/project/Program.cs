@@ -1,0 +1,12 @@
+﻿using project;
+using System.Text;
+using System.Collections.Generic;
+using System;
+ApplicationDictionary<string, string> dict = new ApplicationDictionary<string, string>();
+dict.Add("earth", "земля");
+dict.Add("number", "число");
+dict.Add("tree", "дерево");
+dict.ListOfKey();
+dict.Remove("number");
+dict.ListOfKey();
+Console.WriteLine(dict.GetValueByKey("tree"));
