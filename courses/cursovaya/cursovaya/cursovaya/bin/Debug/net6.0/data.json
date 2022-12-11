@@ -1,0 +1,20 @@
+[
+  {
+    "firstNameOfGuest": "nikita",
+    "lastNameOfGuest": "bakunin",
+    "codeOfGuest": 1,
+    "date1": "2022-12-10T00:00:00",
+    "countOfDays": 5,
+    "numberOfPhone": 1234,
+    "number": 104
+  },
+  {
+    "firstNameOfGuest": "Vlad",
+    "lastNameOfGuest": "Dul",
+    "codeOfGuest": 1,
+    "date1": "2022-12-10T00:00:00",
+    "countOfDays": 10,
+    "numberOfPhone": 1235,
+    "number": 204
+  }
+]

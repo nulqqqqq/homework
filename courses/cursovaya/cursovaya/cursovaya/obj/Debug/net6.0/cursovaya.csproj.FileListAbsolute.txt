@@ -1,0 +1,15 @@
+D:\visual\courses\cursovaya\cursovaya\cursovaya\bin\Debug\net6.0\cursovaya.exe
+D:\visual\courses\cursovaya\cursovaya\cursovaya\bin\Debug\net6.0\cursovaya.deps.json
+D:\visual\courses\cursovaya\cursovaya\cursovaya\bin\Debug\net6.0\cursovaya.runtimeconfig.json
+D:\visual\courses\cursovaya\cursovaya\cursovaya\bin\Debug\net6.0\cursovaya.dll
+D:\visual\courses\cursovaya\cursovaya\cursovaya\bin\Debug\net6.0\cursovaya.pdb
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\cursovaya.csproj.AssemblyReference.cache
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\cursovaya.GeneratedMSBuildEditorConfig.editorconfig
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\cursovaya.AssemblyInfoInputs.cache
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\cursovaya.AssemblyInfo.cs
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\cursovaya.csproj.CoreCompileInputs.cache
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\cursovaya.dll
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\refint\cursovaya.dll
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\cursovaya.pdb
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\cursovaya.genruntimeconfig.cache
+D:\visual\courses\cursovaya\cursovaya\cursovaya\obj\Debug\net6.0\ref\cursovaya.dll
