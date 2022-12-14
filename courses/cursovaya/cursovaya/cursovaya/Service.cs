@@ -107,7 +107,8 @@ namespace cursovaya
             output?.Invoke(MessageConstants.ENTER_CONT_OF_DAY);
             int countOfDays = Convert.ToInt32(Console.ReadLine());
             int number = BookingNumber(countOfDays);
-            output(MessageConstants.CONGRATULATIONS + MessageConstants.GOOD_CHILL);
+            output(String.Format(MessageConstants.CONGRATULATIONS + MessageConstants.PERIOD_OF_STAY + MessageConstants.GOOD_CHILL,
+                qwe.ToString("dd/MM/yyyy"),qwe.AddDays(countOfDays).ToString("dd/MM/yyyy")));
             Client client = new Client(1, firstName, lastName, numberOfPhone, qwe, number, countOfDays);
             List<Client> clients1 = FileJson.ReadTextJson(FileJson.PATH);
             clients1.Add(client);

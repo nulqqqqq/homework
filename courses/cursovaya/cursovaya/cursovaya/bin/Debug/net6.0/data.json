@@ -4,8 +4,39 @@
     "LastNameOfGuest": "Дуль",
     "CodeOfGuest": 1,
     "Date1": "2022-12-14T00:00:00",
+    "Date2": "2022-12-24T00:00:00",
     "CountOfDays": 10,
     "NumberOfPhone": 7275862,
     "Number": 101
+  },
+  {
+    "FirstNameOfGuest": "Влад",
+    "LastNameOfGuest": "Дуль",
+    "CodeOfGuest": 1,
+    "Date1": "2022-12-25T00:00:00",
+    "Date2": "2022-12-31T00:00:00",
+    "CountOfDays": 6,
+    "NumberOfPhone": 72758622,
+    "Number": 103
+  },
+  {
+    "FirstNameOfGuest": "Колесник",
+    "LastNameOfGuest": "Андрей",
+    "CodeOfGuest": 1,
+    "Date1": "2022-12-28T00:00:00",
+    "Date2": "2023-01-07T00:00:00",
+    "CountOfDays": 10,
+    "NumberOfPhone": 3248724,
+    "Number": 203
+  },
+  {
+    "FirstNameOfGuest": "Никита",
+    "LastNameOfGuest": "Бакунин",
+    "CodeOfGuest": 1,
+    "Date1": "2022-12-16T00:00:00",
+    "Date2": "2022-12-24T00:00:00",
+    "CountOfDays": 8,
+    "NumberOfPhone": 9332512,
+    "Number": 204
   }
 ]
