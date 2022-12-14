@@ -1,28 +1,29 @@
 ﻿using System.Text.Json;
 namespace cursovaya
 {
-    public static class Administrator
+    
+    public class Administrator
     {
-        public static void AdminMethod()
+        Service service = new Service();
+        Message2? mess = Service.DisplayMessage;
+        public void AdminMethod()
         {
-            Console.WriteLine("Вы вошли как администратор.Добро пожаловать!");
-            Console.WriteLine("Информация о клиентах:");
-            if (File.Exists("data.json"))
+            
+            mess?.Invoke(MessageConstants.GREETINGS_ADMIN);
+            mess?.Invoke(MessageConstants.INFORMATION_ABOUT_CLIENTS);
+            List<Client> clients = FileJson.ReadTextJson(FileJson.PATH);
+            if (clients.Count > 0)
             {
-                string readText = File.ReadAllText("data.json");
-
-                List<Clients> clients = new List<Clients>();
-
-                foreach (var item in JsonSerializer.Deserialize<List<Clients>>(readText))
+                foreach (Client item in clients)
                 {
-                    Console.WriteLine($"{item.lastNameOfGuest} забронил комнату {item.number} на {item.countOfDays} дней");
+                    mess?.Invoke(String.Format(MessageConstants.INFORMATION_ABOUT_ORDERS,item.LastNameOfGuest,item.Number,item.CountOfDays));
                 }
             }
             else
             {
-                Console.WriteLine("Клиентов на данный момент нет");
+                mess?.Invoke(MessageConstants.SAD_INFORMATION);
             }
-            ServiceClass.Start();
+            service.Start();
         }
     }
 }

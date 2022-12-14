@@ -8,20 +8,20 @@ using cursovaya;
 
 namespace cursovaya
 {
-    public class Numbers<T>
+    public class Numbers
     {
-      public int hotelnumber { get; set; }
-      public int codeofnumber { get; set; }     
-      public int floor { get; set; }
-      public string status { get; set; }
-      public T price { get; set; }
-      public Numbers(int codeOfnumber, int hotelnumber, int floor, string status, T price)
+      public int Hotelnumber { get; set; }
+      public int Codeofnumber { get; set; }     
+      public int Floor { get; set; }
+      public string Status { get; set; }
+      public decimal Price { get; set; }
+      public Numbers(int codeOfnumber, int hotelnumber, int floor, string status, decimal price)
         {
-            this.codeofnumber = codeOfnumber;
-            this.price = price;
-            this.floor = floor;
-            this.status = status;
-            this.hotelnumber = hotelnumber;
+            this.Codeofnumber = codeOfnumber;
+            this.Price = price;
+            this.Floor = floor;
+            this.Status = status;
+            this.Hotelnumber = hotelnumber;
         } 
     }
 }
