@@ -40,6 +40,8 @@ namespace cursovaya
         public const string BUSY                      = "Занят";
         public const string EXITE_ADMIN               = "3";
         public const string END_OF_BOOKING            = "Время бронирования истекло,пожалуйста покиньте номер!";
+        public const string PERIOD_OF_STAY            = "Ваш срок проживания {0} - {1}\n";
+
 
 
     }
