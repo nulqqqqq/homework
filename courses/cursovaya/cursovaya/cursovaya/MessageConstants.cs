@@ -34,9 +34,13 @@ namespace cursovaya
         public const string ERROR_OF_VARIANTS         = "Такого варианта нету ,выбирете из предоставленных:";
         public const string GREETINGS_ADMIN           = "Вы вошли как администратор.Добро пожаловать!";
         public const string INFORMATION_ABOUT_CLIENTS = "Информация о клиентах:";
-        public const string INFORMATION_ABOUT_ORDERS  = "{0} забронил комнату {1} на {2} дней";
+        public const string INFORMATION_ABOUT_ORDERS  = "{0} {1} забронировал комнату {2} на {3} дней\nсрок бронирования {4} - {5}";
         public const string SAD_INFORMATION           = "На данный момент клиентов нет";
         public const string FREE                      = "Свободен";
         public const string BUSY                      = "Занят";
+        public const string EXITE_ADMIN               = "3";
+        public const string END_OF_BOOKING            = "Время бронирования истекло,пожалуйста покиньте номер!";
+
+
     }
 }

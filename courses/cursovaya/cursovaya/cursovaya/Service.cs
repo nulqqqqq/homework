@@ -7,38 +7,28 @@ using System.Linq;
 
 namespace cursovaya
 {
-    public delegate void Message2(string message);
+    public delegate void outputMessage(string message);
     public class Service
     {
         Administrator admin;
-        public delegate void Message();
-        public delegate void Message1(string messd);
 
-        Message2? mess = DisplayMessage;
+        outputMessage? output = DisplayMessage;
 
-        
-        public event Message1? Notify;
-        
-
+        public event outputMessage NotifyEndBook;
         public Data data;
-        public static List<Numbers> numbers;
+        public static List<INumbers> numbers;
         public List<int> roomNumbers = new List<int>();
 
-        public void NotifyHandler()
-        { 
-            mess?.Invoke(MessageConstants.HELLO);
+        public void Greet()
+        {
+            output?.Invoke(MessageConstants.HELLO);
             string name = Console.ReadLine();
-            mess?.Invoke(String.Format(MessageConstants.WELCOME, name));
-
+            output?.Invoke(String.Format(MessageConstants.WELCOME, name));
         }
-        
+
         public void ShowOptions()
         {
-            Message mes;
-            mes = ShowPriceOfNumbers;
-            mes += ShowOptions;
-            mes += Start;
-            mess?.Invoke(MessageConstants.OPTIONS + MessageConstants.FREE_NUMBERS + MessageConstants.ALL_NUMBERS + MessageConstants.EXIT);
+            output?.Invoke(MessageConstants.OPTIONS + MessageConstants.FREE_NUMBERS + MessageConstants.ALL_NUMBERS + MessageConstants.EXIT);
             int choice = Convert.ToInt32(Console.ReadLine());
             if (choice == (int)Choises.viewAllFreeRooms)
             {
@@ -46,7 +36,7 @@ namespace cursovaya
             }
             else if (choice == (int)Choises.viewAllRooms)
             {
-                mes();
+                ShowPriceOfNumbers();
             }
             else if (choice == (int)Choises.exit)
             {
@@ -54,27 +44,26 @@ namespace cursovaya
             }
             else
             {
-                mess?.Invoke(MessageConstants.MISSING_OPTION);
+                output?.Invoke(MessageConstants.MISSING_OPTION);
                 ShowOptions();
             }
-            
         }
 
         public void Picknumber()
         {
-            mess?.Invoke(MessageConstants.FREE_NUMBERS);
-            foreach (Numbers i in numbers)
+            output?.Invoke(MessageConstants.FREE_NUMBERS);
+            foreach (INumbers number in numbers)
             {
-                if (i.Status == MessageConstants.FREE)
+                if (number.Status == MessageConstants.FREE)
                 {
-                    mess?.Invoke(String.Format(MessageConstants.SHOW_PRICE_OF_FREE_NUMBER,i.Hotelnumber,i.Price));
+                    output?.Invoke(String.Format(MessageConstants.SHOW_PRICE_OF_FREE_NUMBER, number.Hotelnumber, number.ToString()));
                 }
             }
 
-            mess?.Invoke(MessageConstants.BACK_TO_OPTIONS);
-            mess?.Invoke(MessageConstants.ORDER_NUMBER);
-            int choise1 = Convert.ToInt32(Console.ReadLine());
-            if (choise1 == 1)
+            output?.Invoke(MessageConstants.BACK_TO_OPTIONS);
+            output?.Invoke(MessageConstants.ORDER_NUMBER);
+            int choiseOfOprions = Convert.ToInt32(Console.ReadLine());
+            if (choiseOfOprions == 1)
             {
                 ShowOptions();
             }
@@ -86,39 +75,39 @@ namespace cursovaya
 
         public void ShowPriceOfNumbers()
         {
-            foreach (Numbers i in numbers)
+            foreach (INumbers number in numbers)
             {
-                mess?.Invoke(String.Format(MessageConstants.SHOW_PRICE_AND_STATUS,i.Hotelnumber,i.Price,i.Status));
+                output?.Invoke(String.Format(MessageConstants.SHOW_PRICE_AND_STATUS, number.Hotelnumber, number.ToString(), number.Status));
             }
             ShowOptions();
         }
 
         public DateTime InputDate()
         {
-            mess?.Invoke(MessageConstants.ENTER_DATE_OF_SETTLEMENT);
-            DateTime dt;
-            bool parse = DateTime.TryParse(Console.ReadLine(), out dt);
-            if (!parse||dt.Date < DateTime.Now.Date)
+            output?.Invoke(MessageConstants.ENTER_DATE_OF_SETTLEMENT);
+            DateTime checkInDate;
+            bool parse = DateTime.TryParse(Console.ReadLine(), out checkInDate);
+            if (!parse || checkInDate.Date < DateTime.Now.Date)
             {
-                mess?.Invoke(MessageConstants.ERROR_OF_DATE);
+                output?.Invoke(MessageConstants.ERROR_OF_DATE);
                 InputDate();
             }
-            return dt;
+            return checkInDate;
         }
 
         public void OrderNumber()
         {
-            mess?.Invoke(MessageConstants.PERSONAL_DATA);
-            mess?.Invoke(MessageConstants.FNAME_AND_LNAME);
+            output?.Invoke(MessageConstants.PERSONAL_DATA);
+            output?.Invoke(MessageConstants.FNAME_AND_LNAME);
             string firstName = Console.ReadLine();
             string lastName = Console.ReadLine();
-            mess?.Invoke(MessageConstants.ENTER_PHONE_NUMBER);
+            output?.Invoke(MessageConstants.ENTER_PHONE_NUMBER);
             int numberOfPhone = Convert.ToInt32(Console.ReadLine());
             DateTime qwe = InputDate();
-            mess?.Invoke(MessageConstants.ENTER_CONT_OF_DAY);
+            output?.Invoke(MessageConstants.ENTER_CONT_OF_DAY);
             int countOfDays = Convert.ToInt32(Console.ReadLine());
             int number = BookingNumber(countOfDays);
-            mess(MessageConstants.CONGRATULATIONS + MessageConstants.GOOD_CHILL);
+            output(MessageConstants.CONGRATULATIONS + MessageConstants.GOOD_CHILL);
             Client client = new Client(1, firstName, lastName, numberOfPhone, qwe, number, countOfDays);
             List<Client> clients1 = FileJson.ReadTextJson(FileJson.PATH);
             clients1.Add(client);
@@ -129,9 +118,9 @@ namespace cursovaya
 
         public int BookingNumber(int countOfDays)
         {
-            mess?.Invoke(MessageConstants.SELECT_HOTEL_NUMBER);
+            output?.Invoke(MessageConstants.SELECT_HOTEL_NUMBER);
             int number = Convert.ToInt32(Console.ReadLine());
-            if(!numbers.Select(i => i.Hotelnumber).Contains(number) || roomNumbers.Contains(number))
+            if (!numbers.Select(item => item.Hotelnumber).Contains(number) || roomNumbers.Contains(number))
             {
                 return BookingNumber(countOfDays);
             }
@@ -141,7 +130,14 @@ namespace cursovaya
                 {
                     numbers[i].Status = MessageConstants.BUSY;
                     roomNumbers.Add(number);
-                    mess?.Invoke(String.Format(MessageConstants.TOTAL_PRICE, numbers[i].Price * countOfDays));
+                    if (numbers[i].Type == typeof(double))
+                    {
+                        output?.Invoke(String.Format(MessageConstants.TOTAL_PRICE, Convert.ToDouble(countOfDays) * Convert.ToDouble(numbers[i].ToString())));
+                    }
+                    else if (numbers[i].Type == typeof(int))
+                    {
+                        output?.Invoke(String.Format(MessageConstants.TOTAL_PRICE, countOfDays * Convert.ToInt32(numbers[i].ToString())));
+                    }
                 }
             }
             return number;
@@ -150,44 +146,54 @@ namespace cursovaya
         public void Start()
         {
             data = new Data();
-            numbers = data.hotelNumber;
+            numbers = data.hotelNumbers;
             admin = new Administrator();
-            NotifyHandler();
+            Greet();
             List<Client> clients = FileJson.ReadTextJson(FileJson.PATH);
-            foreach (Client item in clients)
+            foreach (Client client in clients)
             {
-                roomNumbers.Add(item.Number);
+                roomNumbers.Add(client.Number);
             }
-            foreach (Numbers i in numbers)
+            foreach (INumbers number in numbers)
             {
-                if (roomNumbers.Contains(i.Hotelnumber))
+                if (roomNumbers.Contains(number.Hotelnumber))
                 {
-                    i.Status = MessageConstants.BUSY;
+                    number.Status = MessageConstants.BUSY;
                 }
             }
 
-            mess?.Invoke(MessageConstants.ENTER_LIKE_ADMIN + MessageConstants.ENTER_LIKE_GUEST);
-            int a = Convert.ToInt32(Console.ReadLine());
-            if (a == (int)Choises.enterAdmin)
+            output?.Invoke(MessageConstants.ENTER_LIKE_ADMIN + MessageConstants.ENTER_LIKE_GUEST);
+            int typerOfUser = Convert.ToInt32(Console.ReadLine());
+            if (typerOfUser == (int)Choises.enterAdmin)
             {
                 admin.AdminMethod();
             }
-            else if (a == (int)Choises.enterGuest)
+            else if (typerOfUser == (int)Choises.enterGuest)
             {
                 ShowOptions();
             }
             else
             {
-                mess?.Invoke(MessageConstants.ERROR_OF_VARIANTS);
+                output?.Invoke(MessageConstants.ERROR_OF_VARIANTS);
                 Start();
             }
-          
         }
         public static void DisplayMessage(string message)
         {
             Console.WriteLine(message);
         }
-       
+        public void CheekBookExpired(List<Client> clients)
+        {
+            
+            foreach (Client item in clients)
+            {
+                if (item.Date2.Date >= DateTime.Now.Date)
+                {
+                    NotifyEndBook?.Invoke(MessageConstants.END_OF_BOOKING);
+                }
+            }
+        }
+
         enum Choises
         {
             viewAllFreeRooms = 1,
