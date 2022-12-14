@@ -2,7 +2,6 @@
 {
     public class Program
     {
-        Message2? mess = Service.DisplayMessage;
         static public void Main()
         {
             try
@@ -12,9 +11,8 @@
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
-            }
-            
+                Service.DisplayMessage(ex.Message);
+            }  
         }
     }
 }

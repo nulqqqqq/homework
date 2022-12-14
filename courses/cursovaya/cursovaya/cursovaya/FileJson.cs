@@ -26,7 +26,6 @@ namespace cursovaya
             var options = new JsonSerializerOptions { Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic), WriteIndented = true };
             string text = JsonSerializer.Serialize(clients, options);
             File.WriteAllText(path, text);
-
         }
     }
 }

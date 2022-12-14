@@ -2,21 +2,27 @@
 {
     public class Data
     {
-        public List<Numbers> hotelNumber = new List<Numbers>();
+        public List<INumbers> hotelNumbers = new List<INumbers>();
         public Data()
         {
-            hotelNumber.AddRange(new List<Numbers>
+            hotelNumbers.AddRange(new List<Numbers<int>>
             {
-                new Numbers(1, 101, 1, MessageConstants.FREE, 25),
-                new Numbers(2, 102, 1, MessageConstants.FREE, 30),
-                new Numbers(3, 103, 1, MessageConstants.FREE, 30),
-                new Numbers(4, 104, 1, MessageConstants.FREE, 35),
-                new Numbers(5, 105, 1, MessageConstants.FREE, 25),
-                new Numbers(6, 201, 2, MessageConstants.FREE, 25),
-                new Numbers(7, 202, 2, MessageConstants.FREE, 35),
-                new Numbers(8, 203, 2, MessageConstants.FREE, 30),
-                new Numbers(9, 204, 2, MessageConstants.FREE, 25),
-                new Numbers(10, 205, 2, MessageConstants.FREE, 25)
+                new Numbers<int>(1, 101, 1, MessageConstants.FREE, 25),
+                new Numbers<int>(2, 102, 1, MessageConstants.FREE, 30),
+                new Numbers<int>(3, 103, 1, MessageConstants.FREE, 30),
+                new Numbers<int>(4, 104, 1, MessageConstants.FREE, 35),
+                new Numbers<int>(5, 105, 1, MessageConstants.FREE, 25),
+                new Numbers<int>(6, 201, 2, MessageConstants.FREE, 25),
+                new Numbers<int>(7, 202, 2, MessageConstants.FREE, 35),
+                new Numbers<int>(8, 203, 2, MessageConstants.FREE, 30),
+                new Numbers<int>(9, 204, 2, MessageConstants.FREE, 25),
+                new Numbers<int>(10, 205, 2, MessageConstants.FREE, 25),
+
+            });
+            hotelNumbers.AddRange(new List<Numbers<double>>
+            {
+                new Numbers<double>(10, 206, 2, MessageConstants.FREE, 25.50),
+                new Numbers<double>(10, 207, 2, MessageConstants.FREE, 25.75)
             });
         }
     }
